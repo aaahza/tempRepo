@@ -139,21 +139,12 @@ class _MobileMenuState extends State<_MobileMenu> {
       barrierColor: Colors.transparent,
       transitionDuration: AppTheme.animationDuration,
       pageBuilder: (context, animation, secondaryAnimation) {
-        return StatefulBuilder(
-          builder: (context, setMenuState) {
-            return _FullScreenMenu(
-              colors: widget.colors,
-              theme: widget.theme,
-              onNavigationTap: widget.onNavigationTap,
-              onThemeToggle: () {
-                widget.onThemeToggle();
-                setMenuState(
-                  () {},
-                ); // This will rebuild the menu with new colors
-              },
-              onClose: () => Navigator.of(context).pop(),
-            );
-          },
+        return _FullScreenMenu(
+          colors: widget.colors,
+          theme: widget.theme,
+          onNavigationTap: widget.onNavigationTap,
+          onThemeToggle: () => widget.onThemeToggle(),
+          onClose: () => Navigator.of(context).pop(),
         );
       },
     );
@@ -195,7 +186,7 @@ class _FullScreenMenu extends StatelessWidget {
           padding: theme.pagePadding,
           child: Column(
             children: [
-              // Close button
+              // Close button row
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -209,18 +200,23 @@ class _FullScreenMenu extends StatelessWidget {
                 ],
               ),
 
+              // Content (nav + actions) fills remaining space
               Expanded(
                 child: Center(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      // Left side - Navigation items
-                      Expanded(
-                        flex: 1,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: PortfolioData.navigationItems.map((item) {
-                            return TextButton(
+                      Spacer(),
+                      // Navigation items (stacked vertically)
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: PortfolioData.navigationItems.map((item) {
+                          return Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: theme.spacingS / 2,
+                            ),
+                            child: TextButton(
                               onPressed: () {
                                 onNavigationTap(item.toLowerCase());
                                 onClose();
@@ -229,7 +225,6 @@ class _FullScreenMenu extends StatelessWidget {
                                 overlayColor: WidgetStateProperty.all(
                                   Colors.transparent,
                                 ),
-                                // hoverColor: Colors.transparent,
                               ),
                               child: Text(
                                 item,
@@ -239,41 +234,40 @@ class _FullScreenMenu extends StatelessWidget {
                                   fontWeight: AppTheme.semiBold,
                                 ),
                               ),
-                            );
-                          }).toList(),
-                        ),
+                            ),
+                          );
+                        }).toList(),
                       ),
 
-                      // Right side - Action buttons
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Expanded(
-                          flex: 1,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              HoverButton(
-                                text: 'Say hello\n${PortfolioData.email}',
-                                onPressed: () {
-                                  UrlLauncher.launchEmail();
-                                },
-                                textColor: colors.primaryText,
-                                lineColor: colors.secondaryText,
-                                fontSize: theme.body,
-                              ),
-                              SizedBox(height: theme.spacingXL),
-                              HoverButton(
-                                text: 'Switch to\nDark Mode',
-                                onPressed:
-                                    onThemeToggle, // No onClose() call here
-                                textColor: colors.primaryText,
-                                lineColor: colors.secondaryText,
-                                fontSize: theme.body,
-                              ),
-                            ],
+                      Spacer(),
+
+                      // Action buttons (centered row)
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          HoverButton(
+                            text: 'Say hello\n${PortfolioData.email}',
+                            onPressed: () {
+                              UrlLauncher.launchEmail();
+                              // optionally close the menu
+                              // onClose();
+                            },
+                            textColor: colors.primaryText,
+                            lineColor: colors.secondaryText,
+                            fontSize: theme.body,
                           ),
-                        ),
+                          SizedBox(width: theme.spacingXL),
+                          HoverButton(
+                            text: 'Switch to\nDark Mode',
+                            onPressed: () {
+                              onThemeToggle();
+                              onClose();
+                            },
+                            textColor: colors.primaryText,
+                            lineColor: colors.secondaryText,
+                            fontSize: theme.body,
+                          ),
+                        ],
                       ),
                     ],
                   ),

@@ -37,7 +37,7 @@ class AppTheme {
   static const double collaborateTextDesktop = 110;
   
   // Typography - Tablet
-  static const double largeTitleTablet = 270;
+  static const double largeTitleTablet = 280;
   static const double sectionTitleTablet = 70;
   static const double subtitleTablet = 44;
   static const double headingTablet = 32;
@@ -48,7 +48,7 @@ class AppTheme {
   static const double collaborateTextTablet = 95;
   
   // Typography - Small Tablet (between mobile and tablet)
-  static const double largeTitleSmallTablet = 220;
+  static const double largeTitleSmallTablet = 230;
   static const double sectionTitleSmallTablet = 55;
   static const double subtitleSmallTablet = 36;
   static const double headingSmallTablet = 26;
@@ -59,7 +59,7 @@ class AppTheme {
   static const double collaborateTextSmallTablet = 75;
   
   // Typography - Small Desktop (between tablet and full desktop)
-  static const double largeTitleSmallDesktop = 310;
+  static const double largeTitleSmallDesktop = 320;
   static const double sectionTitleSmallDesktop = 75;
   static const double subtitleSmallDesktop = 47;
   static const double headingSmallDesktop = 33;
@@ -70,7 +70,7 @@ class AppTheme {
   static const double collaborateTextSmallDesktop = 100;
   
   // Typography - Mobile
-  static const double largeTitleMobile = 110;
+  static const double largeTitleMobile = 150;
   static const double sectionTitleMobile = 45;
   static const double subtitleMobile = 30;
   static const double headingMobile = 24;
