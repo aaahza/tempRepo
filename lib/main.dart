@@ -12,9 +12,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Asa Singh - Portfolio',
+      title: 'Portfolio',
       theme: ThemeData(textTheme: GoogleFonts.dmSansTextTheme()),
-      home: const PortfolioPage(),
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const PortfolioPage(),
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (context) => const PortfolioPage(),
+        );
+      },
     );
   }
 }
