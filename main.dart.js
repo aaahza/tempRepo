@@ -59311,7 +59311,7 @@ r=q.d
 r===$&&A.a()
 r=B.b.gbi(r.f).Q
 r.toString
-q.r=B.c.dj(q.r+-(p/s*1000)*0.25,0,r)}}q.y=q.x=null},
+q.r=B.c.dj(q.r+-(p/s*1000)*0.5,0,r)}}q.y=q.x=null},
 $S:394}
 A.a3s.prototype={
 $0(){var s=this.a
