@@ -19615,32 +19615,35 @@ _.c=a
 _.d=b
 _.e=c
 _.a=d},
-E0:function E0(a,b,c,d,e){var _=this
-_.c=a
-_.d=b
-_.e=c
-_.f=d
-_.a=e},
-a_2:function a_2(a){this.a=a},
-a_1:function a_1(a,b){this.a=a
-this.b=b},
-w5:function w5(a,b,c,d,e){var _=this
-_.c=a
-_.d=b
-_.e=c
-_.f=d
-_.a=e},
-w6:function w6(){this.c=this.a=null},
-a34:function a34(a){this.a=a},
-a32:function a32(a){this.a=a},
-a33:function a33(a){this.a=a},
-oB:function oB(a,b,c,d,e,f){var _=this
+E0:function E0(a,b,c,d,e,f){var _=this
 _.c=a
 _.d=b
 _.e=c
 _.f=d
 _.r=e
 _.a=f},
+a_2:function a_2(a){this.a=a},
+a_1:function a_1(a,b){this.a=a
+this.b=b},
+w5:function w5(a,b,c,d,e,f){var _=this
+_.c=a
+_.d=b
+_.e=c
+_.f=d
+_.r=e
+_.a=f},
+w6:function w6(){this.c=this.a=null},
+a34:function a34(a){this.a=a},
+a32:function a32(a){this.a=a},
+a33:function a33(a){this.a=a},
+oB:function oB(a,b,c,d,e,f,g){var _=this
+_.c=a
+_.d=b
+_.e=c
+_.f=d
+_.r=e
+_.w=f
+_.a=g},
 a1O:function a1O(a){this.a=a},
 a1N:function a1N(a,b){this.a=a
 this.b=b},
@@ -59232,7 +59235,7 @@ A.asa(B.vv,s)},
 N(a){var s,r=this,q=null,p=r.w?B.vu:B.vt,o=A.aiq(A.c1(a,q,t.w).w.a.a),n=r.d
 n===$&&A.a()
 s=o.ay
-return A.a8a(B.aL,A.rD(B.b2,A.a7d(A.acC(B.U,new A.Dw(n,B.Dv,new A.d4(o.CW,A.cl(A.c([new A.E0(p,r.gWe(),r.gVn(),o,q),A.b2(q,o.z,q),new A.Az(p,o,q),A.b2(q,s,q),new A.nR("ABOUT",p,o,r.Q),new A.yn(p,o,q),A.b2(q,s,q),new A.nR("EXPERIENCE",p,o,r.as),new A.A8(p,B.AF,o,q),A.b2(q,s,q),new A.nR("PROJECTS",p,o,r.at),new A.C1(p,B.AO,o,q),A.b2(q,s,q),A.aaX(B.iZ),A.b2(q,o.at,q),new A.Am(p,o,r.ax)],t.p),B.C,B.h4,B.M),q),q)),p.a,B.fb,B.cq,q,q),q,new A.a3t(r),new A.a3u(r),q,new A.a3v(r),new A.a3w(r)),B.K,q,0,q,q,q,q,q,B.cP)},
+return A.a8a(B.aL,A.rD(B.b2,A.a7d(A.acC(B.U,new A.Dw(n,B.Dv,new A.d4(o.CW,A.cl(A.c([new A.E0(p,r.gWe(),r.gVn(),o,r.w,q),A.b2(q,o.z,q),new A.Az(p,o,q),A.b2(q,s,q),new A.nR("ABOUT",p,o,r.Q),new A.yn(p,o,q),A.b2(q,s,q),new A.nR("EXPERIENCE",p,o,r.as),new A.A8(p,B.AF,o,q),A.b2(q,s,q),new A.nR("PROJECTS",p,o,r.at),new A.C1(p,B.AO,o,q),A.b2(q,s,q),A.aaX(B.iZ),A.b2(q,o.at,q),new A.Am(p,o,r.ax)],t.p),B.C,B.h4,B.M),q),q)),p.a,B.fb,B.cq,q,q),q,new A.a3t(r),new A.a3u(r),q,new A.a3v(r),new A.a3w(r)),B.K,q,0,q,q,q,q,q,B.cP)},
 Wf(){this.az(new A.a3s(this))},
 Vo(a){var s,r,q,p,o,n=this
 switch(a.toLowerCase()){case"about":s=n.Q
@@ -59505,16 +59508,19 @@ A.nR.prototype={
 N(a){var s=null,r=this.e
 return A.cl(A.c([new A.fj(B.bI,s,s,A.br(this.c,s,s,A.b8(s,s,this.d.b,s,s,s,s,s,s,s,s,r.b,s,s,B.v,s,s,!0,s,s,s,s,s,s,s,s)),s),A.b2(s,r.z,s),A.aaX(B.iZ),A.b2(s,r.at,s)],t.p),B.C,B.I,B.M)}}
 A.E0.prototype={
-N(a){var s,r,q,p=this,o=null,n="Based in\nNew Delhi, India",m=A.c1(a,o,t.w).w.a.a
-if(!(m>=900&&m<1200))s=m>=768&&m<900||m<768
+N(a){var s,r,q,p,o,n,m=this,l=null,k="Based in\nNew Delhi, India",j=A.c1(a,l,t.w).w.a.a
+if(!(j>=900&&j<1200))s=j>=768&&j<900||j<768
 else s=!0
-if(s){s=p.c
-r=p.f
-return A.cF(A.c([A.br(n,o,o,A.b8(o,o,s.b,o,o,o,o,o,o,o,o,r.f,o,o,B.v,o,o,!0,o,o,o,o,o,o,o,o)),new A.w5(s,r,p.e,p.d,o)],t.p),B.C,B.P)}s=p.c
+if(s){s=m.c
+r=m.f
+return A.cF(A.c([A.br(k,l,l,A.b8(l,l,s.b,l,l,l,l,l,l,l,l,r.f,l,l,B.v,l,l,!0,l,l,l,l,l,l,l,l)),new A.w5(s,r,m.e,m.d,m.r,l)],t.p),B.C,B.P)}s=m.c
 r=s.b
-q=p.f.f
+q=m.f.f
+p=A.br(k,l,l,A.b8(l,l,r,l,l,l,l,l,l,l,l,q,l,l,B.v,l,l,!0,l,l,l,l,l,l,l,l))
 s=s.c
-return A.cF(A.c([A.br(n,o,o,A.b8(o,o,r,o,o,o,o,o,o,o,o,q,o,o,B.v,o,o,!0,o,o,o,o,o,o,o,o)),A.dn(q,s,A.L6(),"Say hello\nasa22113@iiitd.ac.in",r,!1),A.dn(q,s,p.d,"Switch to\nDark Mode",r,!1),p.Pc()],t.p),B.C,B.P)},
+o=A.dn(q,s,A.L6(),"Say hello\nasa22113@iiitd.ac.in",r,!1)
+n=m.r?"Switch to\nDark Mode":"Switch to\nLight Mode"
+return A.cF(A.c([p,o,A.dn(q,s,m.d,n,r,!1),m.Pc()],t.p),B.C,B.P)},
 Pc(){var s=t.nL
 s=A.X(new A.a6(B.jP,new A.a_2(this),s),s.h("an.E"))
 return A.cF(s,B.C,B.P)}}
@@ -59545,7 +59551,7 @@ N(a){var s=this.a,r=s.c
 return A.dn(s.d.f,r.c,this.gUi(),"Menu",r.b,!1)}}
 A.a34.prototype={
 $3(a,b,c){var s=this.a,r=s.a
-return new A.oB(r.c,r.d,r.e,new A.a32(s),new A.a33(a),null)},
+return new A.oB(r.c,r.d,r.e,new A.a32(s),new A.a33(a),r.r,null)},
 $S:399}
 A.a32.prototype={
 $0(){return this.a.a.a0Z()},
@@ -59554,9 +59560,13 @@ A.a33.prototype={
 $0(){return A.UW(this.a,!1).eR()},
 $S:0}
 A.oB.prototype={
-N(a){var s=this,r=null,q=s.c,p=s.d,o=q.b,n=q.c,m=p.f,l=t.p,k=A.cF(A.c([A.dn(m,n,s.r,"CLOSE",o,!1)],l),B.C,B.oQ),j=t.sH
-j=A.X(new A.a6(B.jP,new A.a1O(s),j),j.h("an.E"))
-return A.acC(q.a,A.amw(new A.d4(p.CW,A.cl(A.c([k,A.dN(A.a7k(A.cl(A.c([new A.o0(r),A.cl(j,B.C,B.I,B.h5),new A.o0(r),A.cF(A.c([A.dn(m,n,new A.a1P(),"Say hello\nasa22113@iiitd.ac.in",o,!1),A.b2(r,r,p.at),A.dn(m,n,new A.a1Q(s),"Switch to\nDark Mode",o,!1)],l),B.C,B.P)],l),B.C,B.h4,B.M),r,r),1)],l),B.C,B.I,B.M),r),!0))}}
+N(a){var s,r,q,p=this,o=null,n=p.c,m=p.d,l=n.b,k=n.c,j=m.f,i=t.p,h=A.cF(A.c([A.dn(j,k,p.r,"CLOSE",l,!1)],i),B.C,B.oQ),g=t.sH
+g=A.X(new A.a6(B.jP,new A.a1O(p),g),g.h("an.E"))
+g=A.cl(g,B.C,B.I,B.h5)
+s=A.dn(j,k,new A.a1P(),"Say hello\nasa22113@iiitd.ac.in",l,!1)
+r=A.b2(o,o,m.at)
+q=p.w?"Switch to\nDark Mode":"Switch to\nLight Mode"
+return A.acC(n.a,A.amw(new A.d4(m.CW,A.cl(A.c([h,A.dN(A.a7k(A.cl(A.c([new A.o0(o),g,new A.o0(o),A.cF(A.c([s,r,A.dn(j,k,new A.a1Q(p),q,l,!1)],i),B.C,B.P)],i),B.C,B.h4,B.M),o,o),1)],i),B.C,B.I,B.M),o),!0))}}
 A.a1O.prototype={
 $1(a){var s=null,r=this.a,q=r.d,p=q.z/2,o=A.a7h(s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,new A.cH(B.U,t.lx),s,s,s,s,s,s,s,s,s)
 return new A.d4(new A.aQ(0,p,0,p),A.ad0(A.br(a,s,s,A.b8(s,s,r.c.b,s,s,s,s,s,s,s,s,q.b,s,s,B.v,s,s,!0,s,s,s,s,s,s,s,s)),new A.a1N(r,a),o),s)},
