@@ -87,31 +87,23 @@ class _PortfolioPageState extends State<PortfolioPage>
             _targetScroll = newTarget.clamp(0.0, maxScroll);
           }
         },
-        // handle touch/mouse drags
+
         onPointerMove: (PointerMoveEvent event) {
           if (!_scrollController.hasClients) return;
 
-          // Update target based on pointer movement.
-          // Note: we subtract delta.dy so upward finger movement (delta.dy < 0)
-          // increases the scroll offset (page moves up).
           final newTarget = _targetScroll - event.delta.dy;
           final maxScroll = _scrollController.position.maxScrollExtent;
           _targetScroll = newTarget.clamp(0.0, maxScroll);
 
-          // Track the last move to estimate velocity on pointer up
-          // We only keep the immediate last delta & timestamp (simple approach).
           _lastMoveTimestamp = event.timeStamp;
           _lastMoveDy = event.delta.dy;
         },
         onPointerDown: (PointerDownEvent event) {
-          // reset last velocity; user started a new gesture
           _lastMoveTimestamp = null;
           _lastMoveDy = null;
           _lastVelocityPxPerSecond = 0.0;
         },
         onPointerUp: (PointerUpEvent event) {
-          // Compute a simple release velocity from last recorded delta & timestamp
-          // and apply a short fling impulse to the target.
           if (_lastMoveTimestamp != null && _lastMoveDy != null && _scrollController.hasClients) {
             // We do not trust extremely old timestamps; safeguard with a minimum dt.
             final dtMillis = event.timeStamp.inMilliseconds - _lastMoveTimestamp!.inMilliseconds;
@@ -119,12 +111,7 @@ class _PortfolioPageState extends State<PortfolioPage>
               final velocity = (_lastMoveDy! / dtMillis) * 1000.0; // px / s
               _lastVelocityPxPerSecond = velocity;
 
-              // Convert this into an impulse on _targetScroll.
-              // Because during moves we used `_targetScroll -= delta.dy`,
-              // a negative delta (finger moved up) produced an increase in target.
-              // The velocity has same sign as delta/dt, so the impulse should follow:
-              // applyDelta = -velocity * flingFactor
-              const double flingFactorSeconds = 0.25; // tune this (how far the fling travels)
+              const double flingFactorSeconds = 0.5; // tune this (how far the fling travels)
               final flingDelta = -velocity * flingFactorSeconds;
               final maxScroll = _scrollController.position.maxScrollExtent;
               _targetScroll = (_targetScroll + flingDelta).clamp(0.0, maxScroll);
@@ -143,7 +130,6 @@ class _PortfolioPageState extends State<PortfolioPage>
             backgroundColor: Colors.transparent,
             body: SingleChildScrollView(
               controller: _scrollController,
-              // keep NeverScrollableScrollPhysics so native browser scrolling doesn't fight our ticker
               physics: const NeverScrollableScrollPhysics(),
               child: Padding(
                 padding: theme.pagePadding,
@@ -156,6 +142,7 @@ class _PortfolioPageState extends State<PortfolioPage>
                       onThemeToggle: _toggleTheme,
                       onNavigationTap: _scrollToSection,
                       theme: theme,
+                      isLightMode: _isLightMode,
                     ),
                     SizedBox(height: theme.spacingS),
                     HeroSection(colors: colors, theme: theme),

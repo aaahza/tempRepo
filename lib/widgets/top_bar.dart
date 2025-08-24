@@ -9,6 +9,7 @@ class TopBar extends StatelessWidget {
   final VoidCallback onThemeToggle;
   final Function(String) onNavigationTap;
   final ResponsiveTheme theme;
+  final bool isLightMode;
 
   const TopBar({
     super.key,
@@ -16,6 +17,7 @@ class TopBar extends StatelessWidget {
     required this.onThemeToggle,
     required this.onNavigationTap,
     required this.theme,
+    required this.isLightMode,
   });
 
   @override
@@ -54,7 +56,7 @@ class TopBar extends StatelessWidget {
           fontSize: theme.body,
         ),
         HoverButton(
-          text: 'Switch to\nDark Mode',
+          text: isLightMode ? 'Switch to\nDark Mode': 'Switch to\nLight Mode',
           onPressed: onThemeToggle,
           textColor: colors.primaryText,
           lineColor: colors.secondaryText,
@@ -83,6 +85,7 @@ class TopBar extends StatelessWidget {
           theme: theme,
           onNavigationTap: onNavigationTap,
           onThemeToggle: onThemeToggle,
+          isLightMode: isLightMode,
         ),
       ],
     );
@@ -118,12 +121,14 @@ class _MobileMenu extends StatefulWidget {
   final ResponsiveTheme theme;
   final Function(String) onNavigationTap;
   final VoidCallback onThemeToggle;
+  final bool isLightMode; 
 
   const _MobileMenu({
     required this.colors,
     required this.theme,
     required this.onNavigationTap,
     required this.onThemeToggle,
+    required this.isLightMode,
   });
 
   @override
@@ -145,6 +150,7 @@ class _MobileMenuState extends State<_MobileMenu> {
           onNavigationTap: widget.onNavigationTap,
           onThemeToggle: () => widget.onThemeToggle(),
           onClose: () => Navigator.of(context).pop(),
+          isLightMode: widget.isLightMode,
         );
       },
     );
@@ -168,6 +174,7 @@ class _FullScreenMenu extends StatelessWidget {
   final Function(String) onNavigationTap;
   final VoidCallback onThemeToggle;
   final VoidCallback onClose;
+  final bool isLightMode; 
 
   const _FullScreenMenu({
     required this.colors,
@@ -175,6 +182,7 @@ class _FullScreenMenu extends StatelessWidget {
     required this.onNavigationTap,
     required this.onThemeToggle,
     required this.onClose,
+    required this.isLightMode, 
   });
 
   @override
@@ -258,7 +266,7 @@ class _FullScreenMenu extends StatelessWidget {
                           ),
                           SizedBox(width: theme.spacingXL),
                           HoverButton(
-                            text: 'Switch to\nDark Mode',
+                            text: isLightMode ? 'Switch to\nDark Mode': 'Switch to\nLight Mode',
                             onPressed: () {
                               onThemeToggle();
                               onClose();
