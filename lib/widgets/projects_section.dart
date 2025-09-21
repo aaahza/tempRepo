@@ -36,7 +36,7 @@ class ProjectsSection extends StatelessWidget {
   }
 }
 
-class _ProjectItem extends StatelessWidget {
+class _ProjectItem extends StatefulWidget {
   final AppColors colors;
   final Project project;
   final bool isReversed;
@@ -48,6 +48,14 @@ class _ProjectItem extends StatelessWidget {
     required this.isReversed,
     required this.theme,
   });
+
+  @override
+  State<_ProjectItem> createState() => _ProjectItemState();
+}
+
+class _ProjectItemState extends State<_ProjectItem> {
+  // keep the carousel key so we can call prev/next and preserve carousel state across rebuilds
+  final GlobalKey<_ProjectImageCarouselState> _carouselKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +77,7 @@ class _ProjectItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildProjectImage(),
-        SizedBox(height: theme.spacingM),
+        SizedBox(height: widget.theme.spacingM),
         _buildProjectContent(),
       ],
     );
@@ -82,7 +90,7 @@ class _ProjectItem extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: isReversed
+      children: widget.isReversed
           ? [
               Expanded(flex: 5, child: image),
               const Spacer(flex: 1),
@@ -102,56 +110,56 @@ class _ProjectItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          project.title,
+          widget.project.title,
           style: TextStyle(
-            color: colors.primaryText,
-            fontSize: theme.subheading,
+            color: widget.colors.primaryText,
+            fontSize: widget.theme.subheading,
             fontWeight: AppTheme.semiBold,
           ),
         ),
-        SizedBox(height: theme.spacingS),
+        SizedBox(height: widget.theme.spacingS),
         Text(
-          project.category,
+          widget.project.category,
           style: TextStyle(
-            color: colors.primaryText,
-            fontSize: theme.body,
+            color: widget.colors.primaryText,
+            fontSize: widget.theme.body,
             fontWeight: AppTheme.semiBold,
           ),
         ),
-        SizedBox(height: theme.spacingS),
+        SizedBox(height: widget.theme.spacingS),
         Text(
-          project.year,
+          widget.project.year,
           style: TextStyle(
-            color: colors.primaryText,
-            fontSize: theme.body,
+            color: widget.colors.primaryText,
+            fontSize: widget.theme.body,
             fontWeight: AppTheme.semiBold,
           ),
         ),
-        SizedBox(height: theme.spacingM),
-        ...project.descriptions.map((description) {
+        SizedBox(height: widget.theme.spacingM),
+        ...widget.project.descriptions.map((description) {
           return Padding(
-            padding: EdgeInsets.only(bottom: theme.spacingM),
+            padding: EdgeInsets.only(bottom: widget.theme.spacingM),
             child: Text(
               description,
               style: TextStyle(
-                color: colors.secondaryText,
-                fontSize: theme.body,
+                color: widget.colors.secondaryText,
+                fontSize: widget.theme.body,
                 fontWeight: AppTheme.semiBold,
               ),
             ),
           );
         }),
-        SizedBox(height: theme.spacingL),
+        SizedBox(height: widget.theme.spacingL),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             HoverButton(
-              text: project.linkText,
-              onPressed: () => UrlLauncher.launchCustomUrl(project.linkUrl),
-              textColor: colors.primaryText,
+              text: widget.project.linkText,
+              onPressed: () => UrlLauncher.launchCustomUrl(widget.project.linkUrl),
+              textColor: widget.colors.primaryText,
               withArrow: true,
-              lineColor: colors.secondaryText,
-              fontSize: theme.body,
+              lineColor: widget.colors.secondaryText,
+              fontSize: widget.theme.body,
             ),
           ],
         ),
@@ -160,10 +168,134 @@ class _ProjectItem extends StatelessWidget {
   }
 
   Widget _buildProjectImage() {
-    return Container(
-      color: Colors.black,
-      padding: theme.imagePadding,
-      child: Image.asset(project.imagePath),
+    final projectImageCarousel = _ProjectImageCarousel(
+      key: _carouselKey, // <-- pass the key so prev()/next() work
+      imagePaths: widget.project.imagePaths,
+      colors: widget.colors,
+      theme: widget.theme,
+    );
+    final showArrows = widget.project.imagePaths.length > 1;
+
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Container(
+          color: Colors.black,
+          padding: widget.theme.imagePadding,
+          child: projectImageCarousel,
+        ),
+
+        if (showArrows)
+          Positioned(
+            right: widget.theme.spacingS,
+            bottom: widget.theme.spacingS,
+            child: Row(
+              children: [
+                _SmallIconButton(
+                  icon: Icons.chevron_left,
+                  onPressed: () => _carouselKey.currentState?.prev(),
+                  colors: widget.colors,
+                  theme: widget.theme,
+                ),
+                SizedBox(width: 8),
+                _SmallIconButton(
+                  icon: Icons.chevron_right,
+                  onPressed: () => _carouselKey.currentState?.next(),
+                  colors: widget.colors,
+                  theme: widget.theme,
+                ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class _ProjectImageCarousel extends StatefulWidget {
+  final List<String> imagePaths;
+  final AppColors colors;
+  final ResponsiveTheme theme;
+
+  const _ProjectImageCarousel({
+    required super.key,
+    required this.imagePaths,
+    required this.colors,
+    required this.theme,
+  });
+
+  @override
+  State<_ProjectImageCarousel> createState() => _ProjectImageCarouselState();
+}
+
+class _ProjectImageCarouselState extends State<_ProjectImageCarousel> {
+  int _index = 0;
+
+  void prev() {
+    setState(() {
+      _index = (_index - 1) % widget.imagePaths.length;
+      if (_index < 0) _index += widget.imagePaths.length;
+    });
+  }
+
+  void next() {
+    setState(() {
+      _index = (_index + 1) % widget.imagePaths.length;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final paths = widget.imagePaths;
+
+    return AspectRatio(
+      aspectRatio: 16/10,
+      child: Stack(
+        children: [
+          // image
+          Positioned.fill(
+            child: ClipRect(
+              child: Image.asset(
+                paths[_index],
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) =>
+                    Container(color: widget.colors.backgroundColor),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SmallIconButton extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback onPressed;
+  final AppColors colors;
+  final ResponsiveTheme theme;
+
+  const _SmallIconButton({
+    required this.icon,
+    required this.onPressed,
+    required this.colors,
+    required this.theme,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      shape: const CircleBorder(),
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: onPressed,
+        child: Icon(
+          icon,
+          size: theme.body * 1.2,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }

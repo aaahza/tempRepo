@@ -16,14 +16,24 @@ class ExperienceSection extends StatelessWidget {
     required this.theme,
   });
 
-  @override
+    @override
   Widget build(BuildContext context) {
     return Column(
-      children: experiences.map((experience) {
-        return _ExperienceItem(
-          colors: colors,
-          experience: experience,
-          theme: theme,
+      children: experiences.asMap().entries.map((entry) {
+        final index = entry.key;
+        final experience = entry.value;
+        
+        return Column(
+          children: [
+            _ExperienceItem(
+              colors: colors,
+              experience: experience,
+              theme: theme,
+            ),
+            // Add gap after each item except the last one
+            if (index < experiences.length - 1)
+              SizedBox(height: theme.spacingProjectGap),
+          ],
         );
       }).toList(),
     );

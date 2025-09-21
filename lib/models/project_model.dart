@@ -5,7 +5,8 @@ class Project {
   final List<String> descriptions;
   final String linkText;
   final String linkUrl;
-  final String imagePath;
+  // replaced single imagePath with a list of image paths
+  final List<String> imagePaths;
 
   const Project({
     required this.title,
@@ -14,6 +15,6 @@ class Project {
     required this.descriptions,
     required this.linkText,
     required this.linkUrl,
-    required this.imagePath,
+    required this.imagePaths,
   });
 }

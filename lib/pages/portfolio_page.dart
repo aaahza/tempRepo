@@ -28,6 +28,9 @@ class _PortfolioPageState extends State<PortfolioPage>
   double _targetScroll = 0.0;
   bool _isLightMode = true;
 
+  // ensure we only precache assets once
+  bool _assetsPrecached = false;
+
   // for fling tracking
   Duration? _lastMoveTimestamp;
   double? _lastMoveDy;
@@ -51,11 +54,20 @@ class _PortfolioPageState extends State<PortfolioPage>
       if ((_targetScroll - _currentScroll).abs() < 0.1) return;
 
       _currentScroll = lerpDouble(_currentScroll, _targetScroll, 0.035)!;
-      // use jumpTo for snappy follow of our computed position
-      // (animateTo would conflict with ticker)
-      _scrollController.jumpTo(_currentScroll);
+      // guard jumpTo in try/catch in case engine isn't ready at that exact moment
+      if (_scrollController.hasClients) {
+        try {
+          _scrollController.jumpTo(_currentScroll);
+        } catch (_) {
+          // ignore transient errors during early startup
+        }
+      }
     });
-    _ticker.start();
+
+    // Start the ticker after the first frame to avoid interacting with the engine too early.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _ticker.start();
+    });
   }
 
   @override
@@ -68,7 +80,22 @@ class _PortfolioPageState extends State<PortfolioPage>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    precacheImage(const AssetImage(PortfolioData.profileImagePath), context);
+
+    if (_assetsPrecached) return;
+    _assetsPrecached = true;
+
+    // gather all unique asset paths: profile + all project images
+    final Set<String> assetPaths = {PortfolioData.profileImagePath};
+    for (final project in PortfolioData.projects) {
+      assetPaths.addAll(project.imagePaths);
+    }
+
+    // precache each one; ignore transient errors
+    for (final path in assetPaths) {
+      precacheImage(AssetImage(path), context).catchError((_) {
+        // ignore - missing assets will be handled by Image.errorBuilder
+      });
+    }
   }
 
   @override
