@@ -1022,7 +1022,7 @@ s.OS()
 return s},
 ale(a){return new A.P9($.a1,a)},
 a8G(){var s,r,q,p,o,n=A.akW(v.G.window.navigator)
-if(n==null||n.length===0)return B.ka
+if(n==null||n.length===0)return B.kb
 s=A.c([],t.as)
 for(r=n.length,q=0;q<n.length;n.length===r||(0,A.y)(n),++q){p=n[q]
 o=p.split("-")
@@ -6780,7 +6780,7 @@ if(r==null)r=3
 s=b==null?null:b.a
 r=A.G(r,s==null?3:s,c)
 r.toString
-return B.kg[A.as3(B.c.am(r),0,8)]},
+return B.kh[A.as3(B.c.am(r),0,8)]},
 acn(a,b,c){var s=a==null,r=s?null:a.a,q=b==null
 if(r==(q?null:b.a))s=s&&q
 else s=!0
@@ -10054,7 +10054,7 @@ acd(a,b,c){if(b!=null&&!b.i(0,B.P))return A.akm(b.fq(A.ala(c)),a)
 return a},
 ala(a){var s,r,q,p,o,n
 if(a<0)return 0
-for(s=0;r=B.kb[s],q=r.a,a>=q;){if(a===q||s+1===6)return r.b;++s}p=B.kb[s-1]
+for(s=0;r=B.kc[s],q=r.a,a>=q;){if(a===q||s+1===6)return r.b;++s}p=B.kc[s-1]
 o=p.a
 n=p.b
 return n+(a-o)/(q-o)*(r.b-n)},
@@ -29035,11 +29035,11 @@ ga2b(){var s=this.a
 if(s instanceof A.du)return s
 return this.a=new A.du(s)},
 ga2K(){var s,r,q,p,o,n=this
-if(n.c===1)return B.ke
+if(n.c===1)return B.kf
 s=n.d
 r=J.bx(s)
 q=r.gu(s)-J.ca(n.e)-n.f
-if(q===0)return B.ke
+if(q===0)return B.kf
 p=[]
 for(o=0;o<q;++o)p.push(r.j(s,o))
 p.$flags=3
@@ -32434,7 +32434,7 @@ n=o.w=s.charCodeAt(0)==0?s:s}return n},
 grR(){var s,r,q=this,p=q.x
 if(p===$){s=q.e
 if(s.length!==0&&s.charCodeAt(0)===47)s=B.d.dg(s,1)
-r=s.length===0?B.kd:A.S9(new A.a6(A.c(s.split("/"),t.s),A.asi(),t.nf),t.N)
+r=s.length===0?B.ke:A.S9(new A.a6(A.c(s.split("/"),t.s),A.asi(),t.nf),t.N)
 q.x!==$&&A.aP()
 p=q.x=r}return p},
 gp(a){var s,r=this,q=r.y
@@ -32546,7 +32546,7 @@ giN(){var s=this.r,r=this.a
 return s<r.length?B.d.dg(r,s+1):""},
 grR(){var s,r,q=this.e,p=this.f,o=this.a
 if(B.d.cG(o,"/",q))++q
-if(q===p)return B.kd
+if(q===p)return B.ke
 s=A.c([],t.s)
 for(r=q;r<p;++r)if(o.charCodeAt(r)===47){s.push(B.d.a8(o,q,r))
 q=r+1}s.push(B.d.a8(o,q,p))
@@ -36366,7 +36366,7 @@ n=o.e
 o=o.cx
 r=q.gU5()
 q.a.toString
-return new A.vv(p,p,p,new A.a3z(),p,p,p,p,p,n,B.Dg,p,p,p,B.Bm,q.gUc(),o,p,B.J8,s,p,r,p,p,B.ka,!1,!1,p,p,p,new A.lc(q,t.l9))},
+return new A.vv(p,p,p,new A.a3z(),p,p,p,p,p,n,B.Dg,p,p,p,B.Bm,q.gUc(),o,p,B.J8,s,p,r,p,p,B.kb,!1,!1,p,p,p,new A.lc(q,t.l9))},
 P(a){var s,r=null,q=A.AJ(!1,!1,this.PR(a),r,r,r,r,!0,r,r,r,new A.a3A(),r,r)
 this.a.toString
 s=this.d
@@ -41780,7 +41780,7 @@ p=h.gjd()
 o=h.r
 o=o==null?g:o*a2+a1
 n=h.w
-n=n==null?g:B.kg[B.f.dq(n.a,0,8)]
+n=n==null?g:B.kh[B.f.dq(n.a,0,8)]
 m=h.y
 m=m==null?g:m*a6+a5
 l=h.z
@@ -42325,8 +42325,8 @@ s=r.a_
 r.cz=s==null?null:s.gAh()
 a.a=!1},
 n8(a,b,c){var s,r,q,p,o=this
-o.fW=A.adL(o.fW,B.kf)
-o.iI=A.adL(o.iI,B.kf)
+o.fW=A.adL(o.fW,B.kg)
+o.iI=A.adL(o.iI,B.kg)
 s=o.fW
 r=s!=null&&!s.gK(s)
 s=o.iI
@@ -60046,7 +60046,7 @@ m.di()
 if(m.x)return
 m.x=!0
 s=A.bD(["images/pfp.jpeg"],t.N)
-for(r=0;r<2;++r)s.J(0,B.kc[r].r)
+for(r=0;r<2;++r)s.J(0,B.kd[r].r)
 for(q=A.d0(s,s.r,s.$ti.c),p=q.$ti.c;q.n();){o=q.d
 if(o==null)o=p.a(o)
 n=m.c
@@ -60055,7 +60055,7 @@ A.atl(new A.mK(o,null,null),n).iz(new A.a4m())}},
 P(a){var s,r=this,q=null,p=r.w?B.vD:B.vC,o=A.ajH(A.bY(a,q,t.w).w.a.a),n=r.d
 n===$&&A.a()
 s=o.ay
-return A.Sh(B.ay,!0,A.rV(B.b3,A.a8g(A.adS(B.P,new A.DZ(n,B.DI,new A.cW(o.CW,A.cd(A.c([new A.Eu(p,r.gWW(),r.gW5(),o,r.w,q),A.aZ(q,o.z,q),new A.B2(p,o,q),A.aZ(q,s,q),new A.o1("ABOUT",p,o,r.as),new A.yR(p,o,q),A.aZ(q,s,q),new A.o1("EXPERIENCE",p,o,r.at),new A.AB(p,B.Bp,o,q),A.aZ(q,s,q),new A.o1("PROJECTS",p,o,r.ax),new A.Cs(p,B.kc,o,q),A.aZ(q,s,q),A.ac3(B.ji),A.aZ(q,o.at,q),new A.AQ(p,o,r.ay)],t.p),B.y,B.hm,B.K),q),q)),p.a,B.fn,B.cx,q,q),q,new A.a4i(r),new A.a4j(r),q,new A.a4k(r),new A.a4l(r)),B.I,q,0,q,q,q,q,q,B.bT)},
+return A.Sh(B.ay,!0,A.rV(B.b3,A.a8g(A.adS(B.P,new A.DZ(n,B.DI,new A.cW(o.CW,A.cd(A.c([new A.Eu(p,r.gWW(),r.gW5(),o,r.w,q),A.aZ(q,o.z,q),new A.B2(p,o,q),A.aZ(q,s,q),new A.o1("ABOUT",p,o,r.as),new A.yR(p,o,q),A.aZ(q,s,q),new A.o1("EXPERIENCE",p,o,r.at),new A.AB(p,B.Bp,o,q),A.aZ(q,s,q),new A.o1("PROJECTS",p,o,r.ax),new A.Cs(p,B.kd,o,q),A.aZ(q,s,q),A.ac3(B.ji),A.aZ(q,o.at,q),new A.AQ(p,o,r.ay)],t.p),B.y,B.hm,B.K),q),q)),p.a,B.fn,B.cx,q,q),q,new A.a4i(r),new A.a4j(r),q,new A.a4k(r),new A.a4l(r)),B.I,q,0,q,q,q,q,q,B.bT)},
 WX(){this.av(new A.a4h(this))},
 W6(a){var s,r,q,p,o,n=this
 switch(a.toLowerCase()){case"about":s=n.as
@@ -60169,7 +60169,7 @@ q=l.d
 p=q.Q
 o=t.p
 n=A.c([A.bu(j,k,k,A.bd(k,k,r,k,k,k,k,k,k,k,k,q.d,k,k,B.u,k,k,!0,k,k,k,k,k,k,k,k)),A.aZ(k,p,k)],o)
-B.b.J(n,new A.a6(B.kh,new A.M_(l),t.qM))
+B.b.J(n,new A.a6(B.ka,new A.M_(l),t.qM))
 n.push(A.aZ(k,p,k))
 m=q.f
 n.push(A.bu(i,k,k,A.bd(k,k,r,k,k,k,k,k,k,k,k,m,k,k,B.u,k,k,!0,k,k,k,k,k,k,k,k)))
@@ -60185,7 +60185,7 @@ s=s.c
 n=t.p
 r=A.dP(new A.ha(B.iE,A.cd(A.c([A.bu(j,k,k,A.bd(k,k,r,k,k,k,k,k,k,k,k,q.d,k,k,B.u,k,k,!0,k,k,k,k,k,k,k,k)),A.cD(A.c([A.bu(i,k,k,A.bd(k,k,r,k,k,k,k,k,k,k,k,p,k,k,B.u,k,k,!0,k,k,k,k,k,k,k,k)),A.aZ(k,k,o),A.dn(p,s,A.LM(),h,r,!1),A.aZ(k,k,o),A.dn(p,s,A.a7Q(),g,r,!0)],n),B.bQ,B.G)],n),B.y,B.Q,B.K),k),2)
 s=t.p1
-s=A.X(new A.a6(B.kh,new A.M0(l),s),s.h("an.E"))
+s=A.X(new A.a6(B.ka,new A.M0(l),s),s.h("an.E"))
 return A.cD(A.c([r,A.dP(new A.ha(B.iE,A.cd(s,B.y,B.Q,B.K),k),1)],n),B.L,B.Q)}}
 A.M_.prototype={
 $1(a){var s=null,r=this.a,q=r.d
@@ -63555,23 +63555,17 @@ B.i2=new A.iB(5,"end")
 B.AK=s([B.dd,B.i0,B.i1,B.eJ,B.aQ,B.i2],A.a9("w<iB>"))
 B.k9=s(["ABOUT","EXPERIENCE","PROJECTS","CONTACT"],t.s)
 B.AM=s([B.eW,B.eX],A.a9("w<pV>"))
+B.ka=s(["I'm a final-year Computer Science student, primarily working with Python and C++. I enjoy tackling projects that are both technically challenging and socially impactful.","My professional experience includes developing a computer vision SDK for a government application impacting over 90 million users , where I focused on performance and cost optimization. In my research role, I'm exploring novel Deep Learning frameworks for biomechanical analysis and feedback.","Beyond coding, I'm also a member of my college basketball team and previously coordinated our Philosophy Club."],t.s)
 B.AO=s([1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298],t.t)
 B.BF=new A.jv("en","US")
-B.ka=s([B.BF],t.as)
+B.kb=s([B.BF],t.as)
 B.Mr=new A.iK(0,0)
 B.Mw=new A.iK(1,0.05)
 B.Mu=new A.iK(3,0.08)
 B.Mv=new A.iK(6,0.11)
 B.Mt=new A.iK(8,0.12)
 B.Ms=new A.iK(12,0.14)
-B.kb=s([B.Mr,B.Mw,B.Mu,B.Mv,B.Mt,B.Ms],A.a9("w<iK>"))
-B.AN=s(["Developed a custom 3D surface reconstruction pipeline from scratch in C++ using the CGAL library.","The system is capable of accurately generating 3D surfaces from complex networks of over 500 non-parallel curves and renders them interactively using OpenGL at over 60 FPS."],t.s)
-B.B6=s(["images/pellip1.jpg","images/pellip2.jpg","images/s1.jpg","images/s2.jpg"],t.s)
-B.F8=new A.tO("Surface Reconstruction","Computer Graphics, C++","2024",B.AN,"View on Github","https://github.com/rahisenpai/surface-reconstruction",B.B6)
-B.Bx=s(["Co-developed a full-stack system to provide automated tactical analysis from football match videos, using a fine-tuned YOLOv8 model that achieved a 0.912 mAP@50 for object detection.","The pipeline uses ByteTrack for multi-object tracking and homography estimation to map player movements onto a 2D tactical pitch view.","Architected an asynchronous backend with Flask and Celery to manage the computationally intensive video processing, delivering final analytics like player speed and distance covered to a web interface."],t.s)
-B.AW=s(["images/2d.jpg","images/placeholder_detection.jpg"],t.s)
-B.F7=new A.tO("Vision-Based Football Analytics System","Computer Vision, Machine Learning, Python","2025",B.Bx,"View on GitHub","https://github.com/aaahza",B.AW)
-B.kc=s([B.F8,B.F7],A.a9("w<tO>"))
+B.kc=s([B.Mr,B.Mw,B.Mu,B.Mv,B.Mt,B.Ms],A.a9("w<iK>"))
 B.AZ=s([-1,0,0,1,0,0,-1,0,1,0,0,0,-1,1,0,1,1,1,1,0],t.n)
 B.Ht=new A.uX(0,"left")
 B.Hu=new A.uX(1,"right")
@@ -63586,6 +63580,13 @@ B.x4=new A.kH(0,"auto")
 B.x5=new A.kH(1,"full")
 B.x6=new A.kH(2,"chromium")
 B.B7=s([B.x4,B.x5,B.x6,B.cq],A.a9("w<kH>"))
+B.AN=s(["Developed a custom 3D surface reconstruction pipeline from scratch in C++ using the CGAL library.","The system is capable of accurately generating 3D surfaces from complex networks of over 500 non-parallel curves and renders them interactively using OpenGL at over 60 FPS."],t.s)
+B.B6=s(["images/pellip1.jpg","images/pellip2.jpg","images/s1.jpg","images/s2.jpg"],t.s)
+B.F7=new A.tO("Surface Reconstruction","Computer Graphics, C++","2024",B.AN,"View on Github","https://github.com/rahisenpai/surface-reconstruction",B.B6)
+B.Bx=s(["Co-developed a full-stack system to provide automated tactical analysis from football match videos, using a fine-tuned YOLOv8 model that achieved a 0.912 mAP@50 for object detection.","The pipeline uses ByteTrack for multi-object tracking and homography estimation to map player movements onto a 2D tactical pitch view.","Architected an asynchronous backend with Flask and Celery to manage the computationally intensive video processing, delivering final analytics like player speed and distance covered to a web interface."],t.s)
+B.AW=s(["images/2d.jpg","images/placeholder_detection.jpg"],t.s)
+B.F8=new A.tO("Vision-Based Football Analytics System","Computer Vision, Machine Learning, Python","2025",B.Bx,"View on GitHub","https://github.com/aaahza/CV-Project",B.AW)
+B.kd=s([B.F7,B.F8],A.a9("w<tO>"))
 B.c7=new A.dZ(1,"fuchsia")
 B.B9=s([B.av,B.c7,B.aj,B.bt,B.bu,B.bv],A.a9("w<dZ>"))
 B.vd=new A.oD(0,"topLeft")
@@ -63603,7 +63604,7 @@ B.hD=new A.DA(1,"page")
 B.hE=new A.ef(B.a3,B.hD)
 B.Bd=s([B.vY,B.hE],A.a9("w<ap>"))
 B.Bi=s([],t.EQ)
-B.kf=s([],A.a9("w<atX>"))
+B.kg=s([],A.a9("w<atX>"))
 B.Bk=s([],t.gw)
 B.Bm=s([],t.yx)
 B.e1=s([],t.d)
@@ -63612,20 +63613,19 @@ B.Bn=s([],A.a9("w<ado<@>>"))
 B.h5=s([],t.f8)
 B.Bh=s([],t.E1)
 B.h6=s([],t.U)
-B.kd=s([],t.s)
+B.ke=s([],t.s)
 B.a4=s([],t.ve)
 B.Bj=s([],t.px)
 B.Nt=s([],t.p)
 B.Bf=s([],t.t)
-B.ke=s([],t.zz)
+B.kf=s([],t.zz)
 B.Bl=s([],t.yH)
 B.AY=s(["Built and delivered a computer vision-based Kotlin SDK for the Government of India's Poshan Tracker application to automate attendance for over 90 million beneficiaries.","Architected an on-device CV pipeline that is projected to reduce monthly operational cloud costs by over 80% and developed a React Native bridge for seamless integration."],t.s)
 B.yQ=new A.kU("M\xe9lange Research Lab, IIITD \u2014 in collaboration with NeGD","Software Development Intern","July 2025 - Present","Research & GovTech","https://www.negd.gov.in","https://www.negd.gov.in",B.AY,"National e-Governance Division, Govt. of India")
 B.AX=s(["Leading the development of a novel Physiotherapy system that provides real-time corrective feedback on exercise form by analyzing biomechanical data.","Engineered and trained deep learning models, including a 16-layer Transformer and a Conditional VAE, on large-scale datasets like MINT and AMASS to predict and map human motion."],t.s)
 B.yP=new A.kU("Graphics Research Group, IIITD","Undergraduate Researcher","Dec 2024 - Present","Research","https://graphics.iiitd.edu.in","https://graphics.iiitd.edu.in/",B.AX,"Computer Vision & Graphics Research")
 B.Bp=s([B.yQ,B.yP],A.a9("w<kU>"))
-B.kg=s([B.dP,B.dQ,B.dR,B.w,B.U,B.u,B.bf,B.dS,B.cD],A.a9("w<ex>"))
-B.kh=s(["I'm a final-year Computer Science student driven to create software that makes a tangible difference. With a strong skill set in Python and C++, I enjoy tackling projects that are both technically challenging and socially impactful.","My professional experience includes developing a computer vision SDK for a government application impacting over 90 million users , where I focused on performance and cost optimization. In my research role, I'm exploring novel AI techniques for biomechanical analysis and feedback.","IIIT Delhi has been instrumental in shaping my approach to problem-solving. I've learned to ground my practical development in solid theoretical principles.","Beyond coding, I'm a dedicated member of my college basketball team and previously coordinated our Philosophy Club."],t.s)
+B.kh=s([B.dP,B.dQ,B.dR,B.w,B.U,B.u,B.bf,B.dS,B.cD],A.a9("w<ex>"))
 B.cJ=s([B.b8,B.aZ,B.di,B.dj,B.eV],t.EQ)
 B.bU=new A.eD(0,"controlModifier")
 B.bV=new A.eD(1,"shiftModifier")
