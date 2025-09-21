@@ -18,10 +18,9 @@ class PortfolioData {
   static const String aboutSkills = 'Product Development\nUX/UI & Design';
 
   static const List<String> aboutDescriptions = [
-    'I\'m a final-year Computer Science student driven to create software that makes a tangible difference. With a strong skill set in Python and C++, I enjoy tackling projects that are both technically challenging and socially impactful.',
-    'My professional experience includes developing a computer vision SDK for a government application impacting over 90 million users , where I focused on performance and cost optimization. In my research role, I\'m exploring novel AI techniques for biomechanical analysis and feedback.',
-    'IIIT Delhi has been instrumental in shaping my approach to problem-solving. I\'ve learned to ground my practical development in solid theoretical principles.',
-    'Beyond coding, I\'m a dedicated member of my college basketball team and previously coordinated our Philosophy Club.',
+    'I\'m a final-year Computer Science student, primarily working with Python and C++. I enjoy tackling projects that are both technically challenging and socially impactful.',
+    'My professional experience includes developing a computer vision SDK for a government application impacting over 90 million users , where I focused on performance and cost optimization. In my research role, I\'m exploring novel Deep Learning frameworks for biomechanical analysis and feedback.',
+    'Beyond coding, I\'m also a member of my college basketball team and previously coordinated our Philosophy Club.',
   ];
 
   // Navigation items
@@ -95,7 +94,7 @@ class PortfolioData {
         'Architected an asynchronous backend with Flask and Celery to manage the computationally intensive video processing, delivering final analytics like player speed and distance covered to a web interface.',
       ],
       linkText: 'View on GitHub',
-      linkUrl: 'https://github.com/aaahza',
+      linkUrl: 'https://github.com/aaahza/CV-Project',
       imagePaths: [
         'images/2d.jpg',
         'images/placeholder_detection.jpg', // example second image
